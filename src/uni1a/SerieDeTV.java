@@ -1,9 +1,5 @@
-/**
- * Class SerieDeTV
- */
 package uni1a;
 
-// Subclase SerieDeTV que extiende de ContenidoAudiovisual
 public class SerieDeTV extends ContenidoAudiovisual {
     private int temporadas;
 
@@ -19,15 +15,16 @@ public class SerieDeTV extends ContenidoAudiovisual {
     public void setTemporadas(int temporadas) {
         this.temporadas = temporadas;
     }
-    
+
     @Override
     public void mostrarDetalles() {
-        System.out.println("Detalles de la película:");
-        System.out.println("ID: " + getId());
-        System.out.println("Título: " + getTitulo());
-        System.out.println("Duración en minutos: " + getDuracionEnMinutos());
-        System.out.println("Género: " + getGenero());
-        System.out.println("Temporadas: " + this.temporadas);
+        mostrarDatosBase("la serie de TV");
+        System.out.println("Temporadas: " + temporadas);
         System.out.println();
+    }
+
+    @Override
+    public String convertirACSV() {
+        return "SERIE," + getTitulo() + "," + getDuracionEnMinutos() + "," + getGenero() + "," + temporadas;
     }
 }

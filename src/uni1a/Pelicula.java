@@ -1,9 +1,5 @@
-/**
- * Class Pelicula
- */
 package uni1a;
 
-// Subclase Pelicula que extiende de ContenidoAudiovisual
 public class Pelicula extends ContenidoAudiovisual {
     private String estudio;
 
@@ -19,15 +15,16 @@ public class Pelicula extends ContenidoAudiovisual {
     public void setEstudio(String estudio) {
         this.estudio = estudio;
     }
-    
+
     @Override
     public void mostrarDetalles() {
-        System.out.println("Detalles de la película:");
-        System.out.println("ID: " + getId());
-        System.out.println("Título: " + getTitulo());
-        System.out.println("Duración en minutos: " + getDuracionEnMinutos());
-        System.out.println("Género: " + getGenero());
+        mostrarDatosBase("la película");
         System.out.println("Estudio: " + estudio);
         System.out.println();
+    }
+
+    @Override
+    public String convertirACSV() {
+        return "PELICULA," + getTitulo() + "," + getDuracionEnMinutos() + "," + getGenero() + "," + estudio;
     }
 }
